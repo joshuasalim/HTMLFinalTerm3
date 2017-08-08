@@ -11,6 +11,7 @@
   <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  
      <link rel="stylesheet" href="bootstrap-3.3.7-dist/css/bootstrap.min.css">
    <style type="text/css">
         @font-face {
@@ -24,6 +25,19 @@
       font: 400 15px/1.8 Lato, sans-serif;
       color: #777;
   }
+  .parallax {
+    /* The image used */
+    background-image: url("assets/img/bg.jpg");
+
+    /* Set a specific height */
+    height: 500px;
+
+    /* Create the parallax scrolling effect */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
   h3, h4 {
       margin: 10px 0 30px 0;
       letter-spacing: 10px;      
@@ -161,6 +175,7 @@
   }
   </style>
 </head>
+
 <body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="50">
 
 <nav class="navbar navbar-default navbar-fixed-top">
@@ -171,7 +186,8 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>                        
       </button>
-      <a class="navbar-brand" href="#myPage">Logo</a>
+      <a class="navbar-brand" href="#myPage">JR</a>
+      <div data-role="preloader" data-type="metro"></div>
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav navbar-right">
@@ -197,7 +213,7 @@
     <!-- Wrapper for slides -->
     <div class="carousel-inner" role="ilguastbox">
       <div class="item active">
-        <img src="images/guardian.jpg" alt="guardian" width="1200" height="700">
+        <img src="assets/img/guardian.jpg" alt="guardian" width="800" height="600">
         <div class="carousel-caption">
           <h3>Guardians of the Galaxy Vol.2</h3>
           <p>Set to the backdrop of Awesome Mixtape #2, 'Guardians of the Galaxy Vol. 2' continues the team's adventures as they unravel the mystery of Peter Quill's true parentage. </p>
@@ -205,7 +221,7 @@
       </div>
 
       <div class="item">
-        <img src="images/fast8.jpg" alt="Chicago" width="1200" height="700">
+        <img src="assets/img/fast8.jpg" alt="Chicago" width="1200" height="700">
         <div class="carousel-caption">
           <h3>The Fast and the Furious 8</h3>
           <p>When a mysterious woman seduces Dom into the world of terrorism and a betrayal of those closest to him, the crew face trials that will test them as never before.</p>
@@ -213,7 +229,7 @@
       </div>
     
       <div class="item">
-        <img src="images/boss.jpg" alt="Los Angeles" width="1200" height="700">
+        <img src="assets/img/boss.jpg" alt="Los Angeles" width="1200" height="700">
         <div class="carousel-caption">
           <h3>The Boss Baby</h3>
           <p>A suit-wearing briefcase-carrying baby pairs up with his seven-year old brother to stop the dastardly plot of the CEO of Puppy Co.</p>
@@ -247,7 +263,7 @@
     <div class="row text-center">
       <div class="col-sm-4">
         <div class="thumbnail">
-          <img src="images/gotg.jpg" alt="guardian" width="400" height="300">
+          <img src="assets/img/gotg.jpg" alt="guardian" width="400" height="300">
           <p><strong>Starting from</strong></p>
           <p>Friday 25 April 2017</p>
           <button class="btn" data-toggle="modal" data-target="#myModal">Buy/Book Tickets</button>
@@ -255,7 +271,7 @@
       </div>
       <div class="col-sm-4">
         <div class="thumbnail">
-          <img src="images/f8s.jpg" alt="fast8" width="400" height="300">
+          <img src="assets/img/f8s.jpg" alt="fast8" width="400" height="300">
           <p><strong>Starting from</strong></p>
           <p>Saturday 14 May 2017</p>
           <button class="btn" data-toggle="modal" data-target="#myModal">Buy/Book Tickets</button>
@@ -263,7 +279,7 @@
       </div>
       <div class="col-sm-4">
         <div class="thumbnail">
-          <img src="images/small.jpg" alt="boss" width="400" height="300">
+          <img src="assets/img/small.jpg" alt="boss" width="400" height="300">
           <p><strong>Starting from</strong></p>
           <p>Sunday 29 April 2017</p>
           <button class="btn" data-toggle="modal" data-target="#myModal">Buy/Book Tickets</button>
@@ -299,7 +315,7 @@
             </div>
             <div class="form-group">
               <label for="phone"><span class="glyphicon glyphicon-earphone"></span> Phone Number </label>
-              <input type="number" class="form-control" id="telepon" placeholder="Enter Phone Number">
+              <input type="text" class="form-control" id="telepon" placeholder="Enter Phone Number">
             </div>
             <div class="pull-right">
             <button onclick="tambahData()" class="btn btn-primary" type="button">Enter            
@@ -338,6 +354,7 @@
 </div>
 
 <!-- Container (Contact Section) -->
+<div class="parallax"></div>
 <div id="contact" class="container">
   <h3 class="text-center">Contact</h3>
   <p class="text-center"><em>Any feedback?</em></p>
@@ -362,10 +379,10 @@
       <br>
       <div class="row">
         <div class="col-md-12 form-group">
-          <button  class="btn pull-right" type="submit">Send</button>
-          
+          <button class="btn pull-right" type="submit">Send</button>
+         
         </div>
-       
+        
       </div>
     </div>
   </div>
@@ -439,13 +456,15 @@ $(document).ready(function(){
             td = document.createElement("td")
             var edit = document.createElement("button")
              edit.innerHTML = "Edit"
-            edit.setAttribute("class", "btn btn-default")          
+            edit.setAttribute("class", "btn btn-default")
+            edit.setAttribute("type", "button")          
             td.appendChild(edit)
             edit.onclick = function() { editData(tr) }
 
             var hapus = document.createElement("button")
             hapus.innerHTML = "Hapus"
             hapus.setAttribute("class", "btn btn-default")
+            hapus.setAttribute("type", "button")
             td.appendChild(hapus)
             hapus.onclick = function() { hapusData(tr) }
 
@@ -467,10 +486,10 @@ $(document).ready(function(){
         }
 
         function editData(element) {
-        	var psw = document.querySelector('#psw')
-			var nama = document.querySelector("#nama")
-			var alamat = document.querySelector("#alamat")
-			var telepon = document.querySelector('#telepon')
+            var psw = document.querySelector('#psw')
+      			var nama = document.querySelector("#nama")
+      			var alamat = document.querySelector("#alamat")
+      			var telepon = document.querySelector('#telepon')
 
             children = element.querySelectorAll("td")
              psw.value = children[0].innerHTML
@@ -493,10 +512,10 @@ $(document).ready(function(){
 
             tr = newRow(psw, nama, alamat, telepon)
 
-            table = document.querySelector("#kontak1")
+            table = document.querySelector("#kontak")
 			table.querySelector("tbody").replaceChild(tr, element)
 
-            resetForm()
+          resetForm()
         }
 
 		function tambahData() {
@@ -513,7 +532,7 @@ $(document).ready(function(){
 			table.querySelector("tbody").appendChild(tr)
 
             resetForm()
-		}
+    }
 	</script>
     <script src="jquery-3.2.1.min.js"></script>
     <script src="bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
